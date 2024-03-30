@@ -1,0 +1,44 @@
+﻿
+
+@using (Html.BeginForm("Dangnhap", "Nguoidung", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Đăng Nhập</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <span>@ViewBag.ThongBao</span>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="ri-user-fill prefix grey-text"></i>
+
+
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Tên Tài Khoản</label>
+                        <input type="text" id="orangeForm-name" name="txttentk" class=" form-control validate">
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="ri-lock-line prefix grey-text"></i>
+
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật Khẩu</label>
+
+                        <input type="password" name="txtmk" id="orangeForm-pass" class=" form-control validate">
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default" style="background-color: #20dbc4"><i class="ri-login-box-line"></i>Đăng Nhập</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

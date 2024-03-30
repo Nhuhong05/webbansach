@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="669c04bf0fe840bd8fb90dd709602d6d" Name="Diagram1">
+        <EntityTypeShape EntityType="nhasachModel.Cart" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.ChuDe" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.DonHang" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.KhachHang" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.NhaXuatBan" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.ProfileKH" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.Sach" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.SanPhamKhac" Width="1.5" PointX="8" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.TacGia" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.ThongBao" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhasachModel.ThuongHieu" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="nhasachModel.FK_Cart_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_Sach_ChuDe" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_DonHang_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_ThongBao_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_ProfileKH_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_ThongBao_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_Sach_NhaXuatBan" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_Sach_TacGia1" ManuallyRouted="false" />
+        <AssociationConnector Association="nhasachModel.FK_SanPhamKhac_ThuongHieu" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

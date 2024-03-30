@@ -1,0 +1,112 @@
+﻿@model IEnumerable<websitesach.Models.SanPhamKhac>
+
+@{
+    ViewBag.Title = "SanPhamKhac";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+@*@Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
+    @Html.ActionLink("Details", "Details", new { id = item.MaSanPham }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })*@
+
+
+
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                            <div class="iq-header-title">
+                                <h4 class="card-title">Danh sách sản phẩm</h4>
+                            </div>
+                            <div class="iq-card-header-toolbar d-flex align-items-center">
+                                <a href="admin-add-book.html" class="btn btn-primary">Thêm sản phẩm</a>
+                            </div>
+                        </div>
+                        <div class="iq-card-body">
+                            <div class="table-responsive">
+                                <table class="data-tables table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 5%">@Html.DisplayNameFor(model => model.MaSanPham)</th>
+                                            <th style="width: 25%">
+                                                @Html.DisplayNameFor(model => model.AnhSanPham)
+                                            </th>
+                                            <th style="width: 15%">
+                                                @Html.DisplayNameFor(model => model.TenSanPham)
+                                            </th>
+                                            <th style="width: 5%">
+                                                @Html.DisplayNameFor(model => model.SLDaBan)
+                                            </th>
+                                            <th style="width: 5%">
+                                                @Html.DisplayNameFor(model => model.SoLuongTon)
+                                            </th>
+                                            <th style="width: 10%">
+                                                @Html.DisplayNameFor(model => model.Giagoc)
+                                            </th>
+                                            <th style="width: 10%">
+                                                @Html.DisplayNameFor(model => model.GiaBan)
+                                            </th>
+                                            <th style="width: 50%">
+                                                @Html.DisplayNameFor(model => model.MoTa)
+                                            </th>
+
+                                            <th style="width: 7%">
+                                                @Html.DisplayNameFor(model => model.NgayCapNhat)
+                                            </th>
+                                            <th style="width: 15%">
+                                                @Html.DisplayNameFor(model => model.ThuongHieu.TenThuongHieu)
+                                            </th>
+                                            <th width="15%">Hoạt động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+
+                                                <td>@Html.DisplayFor(modelItem => item.MaSanPham)</td>
+                                                <td><img class="img-fluid rounded" src="@Url.Content("~/Hinhanhsanpham/" + item.AnhSanPham)" alt=""></td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SLDaBan)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Giagoc)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.GiaBan)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.MoTa)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ThuongHieu.TenThuongHieu)
+                                                </td>
+                                                <td>
+                                                    <div class="flex align-items-center list-user-action">
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="admin-add-book.html"><i class="ri-pencil-line"></i></a>
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="#"><i class="ri-delete-bin-line"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

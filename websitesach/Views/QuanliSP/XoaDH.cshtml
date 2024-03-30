@@ -1,0 +1,101 @@
+﻿@model websitesach.Models.DonHang
+
+@{
+    ViewBag.Title = "XoaDH";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Xóa Khách Hàng</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PhuongThucThanhToan)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PhuongThucThanhToan)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgayDat)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgayDat)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgayGiao)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgayGiao)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SoLuong)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DonGia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DonGia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.KhachHang.TenTaiKhoan)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.KhachHang.TenTaiKhoan)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Sach.TenSach)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Sach.TenSach)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm("XacNhanXoaDH", "QuanliSP", FormMethod.Post))
+                        {
+                            @Html.Hidden("MaDonHang", Model.MaDonHang)
+                            <div class="form-actions no-color">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a href="@Url.Action("DonHang", "QuanliSP")" class="btn btn-primary">Trở Lại</a>
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

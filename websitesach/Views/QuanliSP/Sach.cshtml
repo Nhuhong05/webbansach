@@ -1,0 +1,194 @@
+﻿@using websitesach.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<websitesach.Models.Sach>
+@{
+    ViewBag.Title = "Sach";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+
+
+
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                @*<a href="~/Views/QuanliSP/Sach.cshtml">~/Views/QuanliSP/Sach.cshtml</a>*@
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Danh sách sách</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="@Url.Action("ThemMoiSach", "QuanliSP")" class="btn btn-primary">Thêm sách</a>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="table-responsive">
+                            <table class="data-tables table table-striped table-bordered" style="width:230%">
+                                <thead>
+                                    <tr>
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().MaSach)
+                                        </th>
+                                        <th width="10%">
+                                            @Html.DisplayNameFor(model => model.First().AnhBia)
+                                        </th>
+                                        <th width="15%">
+                                            @Html.DisplayNameFor(model => model.First().TenSach)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().TacGia.TenTacGia)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().ChuDe.TenChuDe)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().NhaXuatBan.TenNXB)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().GiaBan)
+                                        </th>
+
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().Giagoc)
+                                        </th>
+
+                                        <th width="80%">
+                                            @Html.DisplayNameFor(model => model.First().MoTa)
+                                        </th>
+
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+                                        </th>
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().SLdaban)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().SoLuongTon)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().Moi)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().YeuThich)
+                                        </th>
+                                        <th width="5%">
+                                            @Html.DisplayNameFor(model => model.First().KichThuoc)
+                                        </th>
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().TrongLuong)
+                                        </th>
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().SoTrang)
+                                        </th>
+                                        <th width="3%">
+                                            @Html.DisplayNameFor(model => model.First().LoaiBia)
+                                        </th>
+
+
+                                        <th width="20%">Hoạt động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td>@Html.DisplayFor(modelItem => item.MaSach)</td>
+                                            <td><img class="img-fluid rounded" src="@Url.Content("~/Hinhanhsanpham/" + item.AnhBia)" alt=""></td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenSach)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TacGia.TenTacGia)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Giagoc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.GiaBan)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MoTa)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SLdaban)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SoLuongTon)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Moi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.YeuThich)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.KichThuoc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TrongLuong)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SoTrang)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LoaiBia)
+                                            </td>
+                                           
+
+
+
+
+                                            <td>
+                                                <div class="flex align-items-center list-user-action">
+                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="@Url.Action("SuaSach", "QuanliSP", new {@MaSach = item.MaSach})"><i class="ri-pencil-line"></i></a>
+                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="@Url.Action("XoaSach", "QuanliSP", new {@MaSach = item.MaSach})"><i class="ri-delete-bin-line"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination justify-content-end">
+    <a href="#"></a>
+    @Html.PagedListPager(Model, page => Url.Action("Sach", "QuanliSP", new { page = page }))
+</div>
+<style>
+
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+    .pagination li.active {
+        background: #15f5d5 !important;
+    }
+</style>

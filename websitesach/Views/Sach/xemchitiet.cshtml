@@ -1,0 +1,121 @@
+﻿@using websitesach.Models;
+
+@model Sach
+
+
+@{
+    ViewBag.Title = "xemchitiet";
+    Layout = "~/Views/layout/nguoidunglayout.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+        <div class="iq-card-header d-flex justify-content-between align-items-center">
+            <h4 class="card-title mb-0">Thông tin</h4>
+        </div>
+        <div class="iq-card-body pb-0">
+            <div class="description-contens align-items-top row">
+                <div class="col-md-6">
+                    <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <ul id="description-slider" class="list-inline p-0 m-0  d-flex align-items-center">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <img src="@Url.Content("~/Hinhanhsanpham/" + Model.AnhBia)" class="img-fluid w-100 rounded" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                            <h3 class="mb-3">@Model.TenSach</h3>
+                            <div class="price d-flex align-items-center font-weight-500 mb-2">
+                                <span class="font-size-20 pr-2 old-price">
+                                    <b>
+                                            @{string formattedPrice = string.Format("{0:#,##0}đ", (decimal)Model.Giagoc);}@formattedPrice
+                                        </b>
+                                </span>
+                                <span class="font-size-24 text-dark">
+                                    <b>
+                                            @{ formattedPrice = string.Format("{0:#,##0}đ", (decimal)Model.GiaBan);}@formattedPrice
+                                        </b>
+                                </span>
+                            </div>
+                            <div class="text-primary mb-4">Tác giả: <span class="text-body">@Model.TacGia.TenTacGia</span></div>
+                            <div class="mb-3 d-block">
+                                <span class="font-size-20 text-warning">
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                            </div>
+                            <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">@Model.MoTa</span>
+                            <div class="container-fluid p-0">
+                                <div class="row">
+                                    <div class="text-primary col-12">Chi tiết sách</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-primary col-6">
+                                    <p>Thể Loại: </p>
+                                    <p>Nhà Xuất Bản:</p>
+                                    <p>Năm Xuất Bản:</p>
+                                    <p>Kích Thước:</p>
+                                    <p>Trọng Lượng:</p>
+                                    <p>Loại Bìa:</p>
+                                    <p>Số Trang:</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><span class="text-body">@Model.ChuDe.TenChuDe</span></p>
+                                    <p><span class="text-body"> @Model.NhaXuatBan.TenNXB</span></p>
+                                    <p><span class="text-body"> @Model.NaMXB</span></p>
+                                    <p><span class="text-body"> @Model.KichThuoc</span></p>
+                                    <p><span class="text-body"> @Model.TrongLuong</span></p>
+                                    <p><span class="text-body"> @Model.LoaiBia</span></p>
+
+                                    <p><span class="text-body"> @Model.SoTrang</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 d-flex align-items-center">
+
+                           
+                                    @*<a  class="btn btn-primary view-more mr-2">Thêm vào giỏ hàng</a>*@
+                                    @using (Html.BeginForm("Themgiohang", "GioHang", new { @masp = Model.MaSach, @giaban = Model.GiaBan, @strURL = Request.Url.ToString() }))
+                                    {
+                                        <button type="submit" class="btn btn-primary view-more mr-2">Thêm vào giỏ hàng</button>
+
+                                    }
+                                    <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Mua ngay</a>
+                                
+                                
+
+                                
+
+                            
+
+                        </div>
+                        <div class="mb-3">
+                            <a href="#" class="text-body text-center"><span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i class="ri-heart-fill"></i></span><span>Thêm vào danh sách yêu thích</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Action("sanphamtuongtu", "Sach", new { MaChuDe = Model.MaChuDe })
+
+
+
+

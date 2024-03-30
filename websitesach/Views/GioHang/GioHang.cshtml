@@ -1,0 +1,82 @@
+﻿@model IEnumerable<websitesach.Models.Cart>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/layout/nguoidunglayout.cshtml";
+}
+
+
+        
+            <div class="container-fluid checkout-content">
+                <div class="row">
+                    <div id="cart" class="card-block show p-0 col-12">
+                        <div class="row align-item-center">
+                            <div class="col-lg-8">
+                                <div class="iq-card">
+                                    <div class="iq-card-header d-flex justify-content-between iq-border-bottom mb-0">
+                                        <div class="iq-header-title">
+                                            <h4 class="card-title">Giỏ hàng</h4>
+                                        </div>
+                                    </div>
+                                    <div class="iq-card-body">
+                                        <ul class="list-inline p-0 m-0">
+                                            @foreach (var item in Model)
+                                            {
+                                                <li class="checkout-product">
+                                                    <div class="row align-items-center">
+                                               
+                                                        <div class="col-sm-2">
+                                                            <span class="checkout-product-img">
+                                                                <a href="javascript:void();"><img class="img-fluid rounded" src="@Url.Content("~/Hinhanhsanpham/" + item.Sach.AnhBia)" alt=""></a>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="checkout-product-details">
+                                                                <h5>@item.Sach.TenSach</h5>
+                                                                <p class="text-success">Còn: @item.Sach.SoLuongTon</p>
+                                                                <div class="price">
+                                                                    <h5>@{string formattedPrice = string.Format("{0:#,##0}đ", (decimal)@item.Sach.GiaBan);}@formattedPrice</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="row">
+                                                                <div class="col-sm-10">
+                                                                    <div class="row align-items-center mt-2">
+                                                                        <div class="col-sm-7 col-md-6">
+                                                                            <button type="button" class="fa fa-minus qty-btn" id="btn-minus"></button>
+                                                                            <input type="text" id="quantity" value="@item.SoLuong">
+                                                                            <button type="button" class="fa fa-plus qty-btn" id="btn-plus"></button>
+                                                                        </div>
+                                                                        <div class="col-sm-5 col-md-6">
+                                                                            <span class="product-price">@item.ThanhTien</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    @*<a href="javascript:void();" class="text-dark font-size-20"><i class="ri-delete-bin-7-fill"></i></a>*@
+                                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa" href="@Url.Action("Suagiohang", "GioHang", new {@masp = item.MaGH})"><i class="ri-pencil-line"></i></a>
+                                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="@Url.Action("XoaChuDe", "QuanliSP"@*, new {@MaChuDe = item.MaChuDe}*@)"><i class="ri-delete-bin-line"></i></a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input  type="checkbox" id="vehicle1" name="chon" value="Bike">
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </li>
+                                              }
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+     
+    
+
+

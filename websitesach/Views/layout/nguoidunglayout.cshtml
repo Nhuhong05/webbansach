@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/nguoidungcsslayout/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/nguoidungcsslayout/css/style.css" rel="stylesheet" />
+    <link href="~/Content/nguoidungcsslayout/css/typography.css" rel="stylesheet" />
+    <link href="~/Content/nguoidungcsslayout/css/responsive.css" rel="stylesheet" />
+    <link href="~/Content/nguoidungcsslayout/css/slick.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div>
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <div class="iq-sidebar">
+            <div class="iq-sidebar-logo d-flex justify-content-between">
+                <a href="@Url.Action("Index", "Home")" class="header-logo">
+                    <div class="logo-title">
+                        <span class="text-primary text-uppercase">BookStore</span>
+                    </div>
+                </a>
+            </div>
+            @Html.Action("ChuDepartial", "Chude")
+        </div>
+        @*-----------------chủ đề-----------------------*@
+        <!-- TOP Nav Bar -->
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="iq-menu-bt d-flex align-items-center">
+                        <div class="wrapper-menu open">
+                            <div class="main-circle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="iq-navbar-logo d-flex justify-content-between">
+                            <a href="index.html" class="header-logo">
+                                <div class="logo-title">
+                                    <img src="~/Content/nguoidungcsslayout/imge/logo1.jpg" style="height:100px; width:200px" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navbar-breadcrumb">
+                        <h5 class="mb-0">Trang Chủ</h5>
+                    </div>
+
+                    <div class="iq-search-bar">
+
+
+                        @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                        {
+
+                            <form action="#" class="searchbox">
+                                <ul class="navbar-nav ml-auto navbar-list">
+                                    <li class="nav-item nav-icon">
+                                        <input name="txttimkiem" style="height: 35px" type="text" class="text search-input" placeholder="Tìm kiếm sản phẩm...">
+                                    </li>
+                                    <li class="nav-item nav-icon">
+                                        <button style="height: 35px" class="search-link btn btn-primary" type="submit"><i class="ri-search-line"></i>Tim Kiếm</button>
+                                    </li>
+                                </ul>
+                            </form>
+
+                        }
+
+
+
+
+                    </div>
+
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+                        <i class="ri-menu-3-line"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-list">
+
+                            <li class="nav-item nav-icon search-content">
+
+                                <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
+                                    <i class="ri-search-line"></i>
+                                </a>
+
+                                <form action="#" class="search-box p-0">
+                                    <input type="text" class="text search-input" placeholder="Type here to search...">
+                                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                                </form>
+
+
+                            </li>
+
+                            @{ var user = Session["User"] as websitesach.Models.KhachHang;}
+                            @{ if (user != null)
+                                {
+
+                                    <li class="nav-item nav-icon">
+                                        <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
+                                            <i class="ri-notification-2-line"></i>
+                                            <span class="bg-primary dots"></span>
+                                        </a>
+                                        @*@Html.Action("Thongbaopartial", "Nguoidung")*@
+                                    </li>
+
+                                    <li class="nav-item nav-icon dropdown">
+                                        <a href="@Url.Action("GioHang", "GioHang", new { @user.MaKH })" class="search-toggle iq-waves-effect text-gray rounded">
+                                            <i class="ri-shopping-cart-2-line"></i>
+                                            <span class="badge badge-danger count-cart rounded-circle">2</span>
+                                        </a>
+
+                                    </li>
+                                }
+                            }
+                            <li class="line-height pt-3 d-flex">
+
+                                <div classda"search-toggle iq-waves-effect d-flex p-0 align-items-center">
+                                    <div class="caption" style="margin-top:20px ; margin-right:3px">
+                                        <ul>
+                                            @{ if (user == null)
+                                                {
+                                                    <li>
+
+                                                        <a href="" class="DangKy" style="text-decoration: none" data-toggle="modal" data-target="#modalRegisterForm">
+                                                            <i class="ri-user-add-fill"></i>
+                                                            Đăng ký
+                                                        </a>
+
+                                                    </li>
+                                                    <li>
+
+                                                        <a href="" class="DangNhap" style="text-decoration: none" data-toggle="modal" data-target="#modalLoginForm">
+                                                            <i class="ri-login-box-line"></i>
+                                                            Đăng Nhập
+                                                        </a>
+
+                                                    </li>
+
+                                                }
+                                            }
+                                            @{ if (user != null)
+                                                {
+
+
+                                                    <li>
+                                                        <a href="#" style="text-decoration:none" class="search-toggle iq-waves-effect d-flex align-items-center">
+                                                            <img src="~/Hinhanhsanpham/@user.HinhAnh" class="img-fluid rounded-circle mr-3" alt="user">
+
+                                                            <div class="caption">
+                                                                <h6 class="mb-1 line-height">@user.TenTaiKhoan</h6>
+                                                                <p class="mb-0 text-primary">Tài Khoản</p>
+                                                            </div>
+                                                        </a>
+                                                        <div class="iq-sub-dropdown iq-user-dropdown">
+                                                            <div class="iq-card shadow-none m-0">
+                                                                <div class="iq-card-body p-0 ">
+                                                                    <div class="bg-primary p-3">
+                                                                        <h5 class="mb-0 text-white line-height">Xin Chào: @user.TenTaiKhoan</h5>
+                                                                    </div>
+                                                                    <a href="@Url.Action("taikhoan", "Nguoidung" , new { @user.MaKH })" class="iq-sub-card iq-bg-primary-hover">
+                                                                        <div class="media align-items-center">
+                                                                            <div class="rounded iq-card-icon iq-bg-primary">
+                                                                                <i class="ri-file-user-line"></i>
+                                                                            </div>
+                                                                            <div class="media-body ml-3">
+                                                                                <h6 class="mb-0 ">Tài khoản của tôi</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+
+                                                                    <div class="d-inline-block w-100 text-center p-3">
+                                                                        <a class="bg-primary iq-sign-btn" href="@Url.Action("Dangxuat", "Nguoidung")" role="button">Đăng Xuất<i class="ri-login-box-line ml-2"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- TOP Nav Bar END -->
+        <!-- Page Content  -->
+        <div id="content-page" class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    @RenderBody()
+
+
+                </div>
+            </div>
+        </div>
+        @*@Html.Action("Dangky", "Nguoidung")
+            @Html.Action("Dangnhap", "Nguoidung")*@
+    </div>
+
+    <footer>
+        <section class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <article class="footer__top-intro col-lg-5 col-md-4 col-sm-6">
+                        <h4 class="footer__top-intro-heading">
+                            Về chúng tôi
+                        </h4>
+                        <div class="footer__top-intro-content">
+                            BookStore là cửa hàng luôn cung cấp cho các bạn tìm tòi tri thức, đam mê
+                            đọc sách trên khắp cả nước.Chúng tôi sẽ liên tục cập
+                            nhật những cuốn sách hay nhất, mới nhất, chất lượng nhất
+                            giúp người đọc có những cuốn sách hay nhất để đọc! <br> <br>
+                            Điện thoại: 0352 860 701 <br>
+                            Email: teamed2@gmail.com <br>
+                            Zalo:  039.882.3232 <br>
+                        </div>
+                    </article>
+
+                    <article class="footer__top-policy col-lg-3 col-md-4 col-sm-6">
+                        <h4 class="footer__top-policy-heading">
+                            Chính sách mua hàng
+                        </h4>
+
+                        <ul class="footer__top-policy-list">
+                            <li class="footer__top-policy-item">
+                                <a href="#" class="footer__top-policy-link">Hình thức đặt hàng</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="#" class="footer__top-policy-link">Hình thức thanh toán</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="#" class="footer__top-policy-link">Phương thức vận chuyển</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="#" class="footer__top-policy-link">Chính sách đổi trả</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="#" class="footer__top-policy-link">Hướng dẫn sử dụng</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="footer__top-contact-wrap col-lg-4 col-md-4 col-sm-6">
+                        <h4 class="footer__top-contact-heading">
+                            Hotline liên hệ
+                        </h4>
+
+                        <div class="footer__top-contact">
+                            <div class="footer__top-contact-icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+
+                            <div class="footer__top-contact-phone-wrap">
+                                <div class="footer__top-contact-phone">
+                                    039.882.3232
+                                </div>
+                                <div class="footer__top-contact-des">
+                                    (Giải đáp thắc mắc 24/24)
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="footer__top-contact-heading">
+                            Kết nối với chúng tôi
+                        </h4>
+
+                        <div class="footer__top-contact-social">
+                            <a href="#" class="footer__top-contact-social-link">
+                                <i class="ri-facebook-circle-fill"></i>
+                            </a>
+                            <a href="#" class="footer__top-contact-social-link">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="footer__top-contact-social-link">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="footer__top-contact-social-link">
+                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </footer>
+
+    @using (Html.BeginForm("Dangnhap", "Nguoidung", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Đăng Nhập</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <span>@ViewBag.ThongBao</span>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="ri-user-fill prefix grey-text"></i>
+
+
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Tên Tài Khoản</label>
+                            <input type="text" id="orangeForm-name" name="txttentk" class=" form-control validate">
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="ri-lock-line prefix grey-text"></i>
+
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật Khẩu</label>
+
+                            <input type="password" name="txtmk" id="orangeForm-pass" class=" form-control validate">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-default" style="background-color: #20dbc4"><i class="ri-login-box-line"></i>Đăng Nhập</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @using (Html.BeginForm("Dangky", "Nguoidung", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Đăng Kí</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="ri-user-fill prefix grey-text"></i>
+
+                            @*@Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+                            <label data-error="wrong" data-success="right" for="orangeForm-email">Họ Tên</label>
+
+                            @*@Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })*@
+
+                            <input type="text" id="orangeForm-name" required name="txttentk" class=" form-control">
+                        </div>
+                        <div class="md-form mb-5">
+                            <i class="ri-mail-line"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+
+                            @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+
+                            @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+
+                            <input type="email" id="orangeForm-name" name="txtemail" required class=" form-control">
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="ri-lock-line prefix grey-text"></i>
+
+                            <label data-error="wrong" data-success="right" for="orangeForm-email">Mật Khẩu</label>
+
+                            @*@Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+                            @*@Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })*@
+
+                            <input type="password" id="orangeForm-name" name="txtMK" required class=" form-control">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-deep-orange" style="background-color: #20dbc4"><i class="ri-user-add-line"></i>Đăng Kí</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+
+    <!-- Footer END -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/nguoidungcsslayout/js/jquery.min.js"></script>
+    <script src="~/Content/nguoidungcsslayout/js/popper.min.js"></script>
+    <script src="~/Content/nguoidungcsslayout/js/bootstrap.min.js"></script>
+    <!-- Appear JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/jquery.appear.js"></script>
+    <!-- Countdown JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/countdown.min.js"></script>
+    <!-- Counterup JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/waypoints.min.js"></script>
+    <script src="~/Content/nguoidungcsslayout/js/jquery.counterup.min.js"></script>
+    <!-- Wow JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/wow.min.js"></script>
+    <!-- Apexcharts JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/apexcharts.js"></script>
+    <!-- Slick JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/slick.min.js"></script>
+    <!-- Select2 JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/select2.min.js"></script>
+    <!-- Owl Carousel JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/jquery.magnific-popup.min.js"></script>
+    <!-- Smooth Scrollbar JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/smooth-scrollbar.js"></script>
+    <!-- lottie JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/lottie.js"></script>
+    <!-- am core JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/core.js"></script>
+    <!-- am charts JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/charts.js"></script>
+    <!-- am animated JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/animated.js"></script>
+    <!-- am kelly JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/kelly.js"></script>
+    <!-- am maps JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/maps.js"></script>
+    <!-- am worldLow JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/worldLow.js"></script>
+    <!-- Raphael-min JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/raphael-min.js"></script>
+    <!-- Morris JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/morris.js"></script>
+    <!-- Morris min JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/morris.min.js"></script>
+    <!-- Flatpicker Js -->
+    <script src="~/Content/nguoidungcsslayout/js/flatpickr.js"></script>
+    <!-- Style Customizer -->
+    <script src="~/Content/nguoidungcsslayout/js/style-customizer.js"></script>
+    <!-- Chart Custom JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/chart-custom.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="~/Content/nguoidungcsslayout/js/custom.js"></script>
+</body>
+
+</html>

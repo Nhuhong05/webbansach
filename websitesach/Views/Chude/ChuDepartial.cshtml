@@ -1,0 +1,113 @@
+﻿@using websitesach.Models;
+@model List<ChuDe>
+
+<link href="~/Content/nguoidungcsslayout/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/style.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/typography.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/responsive.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/slick.css" rel="stylesheet" />
+<div class="iq-sidebar">
+    <div class="iq-sidebar-logo d-flex justify-content-between">
+        <a href="admin-dashboard.html" class="header-logo">
+            <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
+            <div class="logo-title">
+                <span class="text-primary text-uppercase">BookStore</span>
+            </div>
+        </a>
+        <div class="iq-menu-bt-sidebar">
+            <div class="iq-menu-bt align-self-center">
+                <div class="wrapper-menu">
+                    <div class="main-circle"><i class="las la-bars"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar-scrollbar">
+        <nav class="iq-sidebar-menu">
+            <ul id="iq-sidebar-toggle" class="iq-menu">
+                <li>
+                    <a href="@Url.Action("Index", "Home")" class="iq-waves-effect">
+                        <span class="ripple rippleEffect"></span>
+                        <i class="las la-home iq-arrow-left"></i>
+                        <span>Trang Chủ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>Danh Mục Sách</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+
+                        @foreach (var item in Model)
+                        {
+                            <li class="elements">
+                                <a href="@Url.Action("sachtheochude", "ChuDe", new { item.MaChuDe })" class="iq-waves-effect">
+                                    <i class="ri-play-circle-line"></i>
+                                    <span>@item.TenChuDe</span>
+                                    <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("SachMoi", "Sach")"><i class="ri-book-line"></i>Sách Mới</a></li>
+                <li><a href="@Url.Action("SachYeuThich", "Sach")"><i class="ri-book-line"></i>Sách Yêu Thich</a></li>
+            
+
+            </ul>
+        </nav>
+        <div id="sidebar-bottom" class="p-3 position-relative">
+            <div class="iq-card">
+                <div class="iq-card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="sidebar-scrollbar">
+    <nav class="iq-sidebar-menu">
+        <ul id="iq-sidebar-toggle" class="iq-menu">
+            <li class="active active-menu">
+                <a href="@Url.Action("Index", "Home")" class="iq-waves-effect">-->
+                    @*data-toggle="collapse" aria-expanded="true"*@
+                <!--<span class="ripple rippleEffect"></span>
+                <i class="las la-home iq-arrow-left"></i>
+                <span>Trang Chủ</span>
+                 </a>-->
+            @*<ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
+            </ul>*@
+        <!--</li>
+        <li>
+            <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>Danh Mục Sách</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+            <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+
+                @foreach (var item in Model)
+                {
+                    <li class="elements">
+                        <a href="@Url.Action("sachtheochude", "ChuDe", new { item.MaChuDe })" class="iq-waves-effect">
+                            <i class="ri-play-circle-line"></i>
+                            <span>@item.TenChuDe</span>
+                            <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </li>
+
+        <li><a href="@Url.Action("SachMoi", "Sach")"><i class="ri-book-line"></i>Sách Mới</a></li>
+        <li><a href="@Url.Action("SachYeuThich", "Sach")"><i class="ri-book-line"></i>Sách Yêu Thich</a></li>
+
+        <li><a href="@Url.Action("SanPhamKhac", "sanphamkhac")"><i class="ri-book-line"></i>Sản Phẩm Khác</a></li>
+
+
+    </ul>
+</nav>
+</div>-->
+
+
+

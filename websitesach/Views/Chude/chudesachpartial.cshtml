@@ -1,0 +1,37 @@
+﻿@using websitesach.Models;
+@model List<ChuDe>
+<link href="~/Content/nguoidungcsslayout/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/style.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/typography.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/responsive.css" rel="stylesheet" />
+<link href="~/Content/nguoidungcsslayout/css/slick.css" rel="stylesheet" />
+<div class="col-lg-6">
+    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+        <div class="iq-card-header d-flex justify-content-between mb-0">
+            <div class="iq-header-title">
+                <h4 class="card-title">BookStore</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+                
+            </div>
+        </div>
+        <div class="iq-card-body">
+            <ul class="list-inline row mb-0 align-items-center iq-scrollable-block">
+                @foreach (var item in Model)
+                {
+                    <li class="col-sm-6 d-flex mb-3 align-items-center">
+                        <div class="icon iq-icon-box mr-3">
+                            <a href="@Url.Action("sachtheochude", "ChuDe", new { item.MaChuDe })"><img class="img-fluid avatar-60 rounded-circle" src="~/Content/nguoidungcsslayout/imge/sach1.jpg" alt=""></a>
+                        </div>
+                        <div class="mt-1">
+                            <h6>@item.TenChuDe</h6>
+
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

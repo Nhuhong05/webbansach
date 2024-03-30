@@ -1,0 +1,99 @@
+﻿@using websitesach.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<websitesach.Models.NhaXuatBan>
+@{
+    ViewBag.Title = "NhaXuatBan";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+@*@Html.ActionLink("Edit", "Edit", new { id = item.MaNXB }) |
+    @Html.ActionLink("Details", "Details", new { id = item.MaNXB }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.MaNXB })*@
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Danh sách Nhà Xuất Bản</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="@Url.Action("ThemMoiNXB", "QuanliSP")" class="btn btn-primary">Thêm mới Nhà Xuất Bản</a>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="table-responsive">
+                            <table class="data-tables table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th width="10%">@Html.DisplayNameFor(model => model.First().MaNXB)</th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.First().TenNXB)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.First().DiaChi)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.First().DienThoai)
+                                        </th>
+                                        <th width="10%">Hoạt động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MaNXB)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenNXB)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DiaChi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DienThoai)
+                                            </td>
+                                            <td>
+                                                <div class="flex align-items-center list-user-action">
+                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa" href="@Url.Action("SuaNXB", "QuanliSP", new {@MaNXB = item.MaNXB})"><i class="ri-pencil-line"></i></a>
+                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="@Url.Action("XoaNXB", "QuanliSP", new {@MaNXB = item.MaNXB})"><i class="ri-delete-bin-line"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination justify-content-end">
+    <a href="#"></a>
+    @Html.PagedListPager(Model, page => Url.Action("Sach", "QuanliSP", new { page = page }))
+</div>
+<style>
+
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+    .pagination li.active {
+        background: #15f5d5 !important;
+    }
+</style>

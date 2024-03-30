@@ -1,0 +1,38 @@
+﻿@model IEnumerable<websitesach.Models.Cart>
+
+@{
+    ViewBag.Title = "GioHangpartial";
+    Layout = "~/Views/layout/nguoidunglayout.cshtml";
+}
+
+@*<li class="nav-item nav-icon dropdown">
+    <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
+        <i class="ri-shopping-cart-2-line"></i>
+        <span class="badge badge-danger count-cart rounded-circle">2</span>
+    </a>
+    <div class="iq-sub-dropdown">
+        <div class="iq-card shadow-none m-0">
+            <div class="iq-card-body p-0 toggle-cart-info">
+                <div class="bg-primary p-3">
+                    <h5 class="mb-0 text-white">Giỏ Hàng<small class="badge  badge-light float-right pt-1">2</small></h5>
+                </div>*@
+                @foreach (var item in Model)
+                {
+                    <a href="#" class="iq-sub-card">
+                        <div class="media align-items-center">
+                            <div class="">
+                                <img class="rounded" src="images/cart/01.jpg" alt="">
+                            </div>
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0 ">@item.Sach.TenSach</h6>
+                                <p class="mb-0">@{string formattedPrice = string.Format("{0:#,##0}đ", (decimal)@item.Sach.GiaBan);}@formattedPrice</p>
+                            </div>
+                            <div class="float-right font-size-24 text-danger"><i class="ri-close-fill"></i></div>
+                        </div>
+                    </a>
+                }
+               
+            @*</div>
+        </div>
+    </div>
+</li>*@

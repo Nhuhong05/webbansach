@@ -1,0 +1,68 @@
+﻿@model websitesach.Models.KhachHang
+
+@{
+    ViewBag.Title = "XoaKH";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Xóa Khách Hàng</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenTaiKhoan)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenTaiKhoan)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MatKhau)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MatKhau)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ThongBao.NoiDung)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ThongBao.NoiDung)
+                            </dd>
+
+                        </dl>
+                        @using (Html.BeginForm("XacNhanXoaKH", "QuanliSP", FormMethod.Post))
+                        {
+                            @Html.Hidden("MaKH", Model.MaKH)
+                            <div class="form-actions no-color">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a href="@Url.Action("KhachHang", "QuanliSP")" class="btn btn-primary">Trở Lại</a>
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

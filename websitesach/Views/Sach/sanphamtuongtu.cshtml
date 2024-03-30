@@ -1,0 +1,40 @@
+﻿@using websitesach.Models;
+@*định nghĩa kiểu dữ liệu cho biến model*@
+@model List<Sach>
+<div class="col-lg-12">
+    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+        <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+            <div class="iq-header-title">
+                <h4 class="card-title mb-0">Sản phẩm tương tự</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+                <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>
+            </div>
+        </div>
+        <div class="iq-card-body single-similar-contens">
+            <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
+                @foreach (var item in Model)
+                {
+                    <li class="col-md-3">
+                        <div class="row align-items-center">
+                            <div class="col-5">
+                                <div class="position-relative image-overlap-shadow">
+                                    <a href="javascript:void();"><img class="img-fluid rounded w-100" src="@Url.Content("~/Hinhanhsanpham/" + item.AnhBia)" alt=""></a>
+                                    <div class="view-book">
+                                        <a href="@Url.Action("xemchitiet", "Sach", new { item.MaSach })" class="btn btn-sm btn-white">Xem thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7 pl-0">
+                                <h6 class="mb-2">@item.TenSach</h6>
+                                <p class="text-body">Tác Giả : @item.TacGia.TenTacGia</p>
+                                
+                                <a href="@Url.Action("xemchitiet", "Sach", new { item.MaSach })" class="text-dark" tabindex="-1">Đọc ngay<i class="ri-arrow-right-s-line"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                }
+                </ul>
+        </div>
+    </div>
+</div>

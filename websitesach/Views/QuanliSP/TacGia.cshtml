@@ -1,0 +1,91 @@
+﻿@model IEnumerable<websitesach.Models.TacGia>
+
+@{
+    ViewBag.Title = "TacGia";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+@*@Html.ActionLink("Edit", "Edit", new { id = item.MaTacGia }) |
+    @Html.ActionLink("Details", "Details", new { id = item.MaTacGia }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.MaTacGia })*@
+
+
+
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                            <div class="iq-header-title">
+                                <h4 class="card-title">Danh Sách Tác Giả</h4>
+                            </div>
+                            <div class="iq-card-header-toolbar d-flex align-items-center">
+                                <a href="@Url.Action("ThemMoiTG", "QuanliSP")" class="btn btn-primary">Thêm mới Tác Giả</a>
+                            </div>
+                        </div>
+                        <div class="iq-card-body">
+                            <div class="table-responsive">
+                                <table class="data-tables table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">
+                                                @Html.DisplayNameFor(model => model.MaTacGia)
+                                            </th>
+                                            <th width="25%">
+                                                @Html.DisplayNameFor(model => model.TenTacGia)
+                                            </th>
+                                            <th width="25%">
+                                                @Html.DisplayNameFor(model => model.DiaChi)
+                                            </th>
+                                            <th width="25%">
+                                                @Html.DisplayNameFor(model => model.TieuSu)
+                                            </th>
+                                            <th width="50%">
+                                                @Html.DisplayNameFor(model => model.DienThoai)
+                                            </th>
+
+
+                                            <th width="15%">Hoạt động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.MaTacGia)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TenTacGia)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TieuSu)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DienThoai)
+                                                </td>
+                                                <td>
+                                                    <div class="flex align-items-center list-user-action">
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa" href="@Url.Action("SuaTG", "QuanliSP", new {@MaTacGia = item.MaTacGia})"><i class="ri-pencil-line"></i></a>
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="@Url.Action("XoaTG", "QuanliSP", new { @MaTacGia = item.MaTacGia })"><i class="ri-delete-bin-line"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,62 @@
+﻿@model websitesach.Models.NhaXuatBan
+
+@{
+    ViewBag.Title = "XoaNXB";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Xóa Danh Mục Sách</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenNXB)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenNXB)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DiaChi)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DiaChi)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DienThoai)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DienThoai)
+                            </dd>
+
+                        </dl>
+
+
+                        @using (Html.BeginForm("XacNhanXoaNXB", "QuanliSP", FormMethod.Post))
+                        {
+                            @Html.Hidden("MaNXB", Model.MaNXB)
+                            <div class="form-actions no-color">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a href="@Url.Action("NhaXuatBan", "QuanliSP")" class="btn btn-primary">Trở Lại</a>
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

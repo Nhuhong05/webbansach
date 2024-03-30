@@ -1,0 +1,184 @@
+﻿@model websitesach.Models.Sach
+
+@{
+    ViewBag.Title = "XoaSach";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Xóa Sách</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenSach)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenSach)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Giagoc)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Giagoc)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.GiaBan)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.GiaBan)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MoTa)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MoTa)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AnhBia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.AnhBia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgayCapNhat)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgayCapNhat)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SLdaban)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SLdaban)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SoLuongTon)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SoLuongTon)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Moi)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Moi)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.YeuThich)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.YeuThich)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NaMXB)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NaMXB)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TrongLuong)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TrongLuong)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.KichThuoc)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.KichThuoc)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LoaiBia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LoaiBia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SoTrang)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SoTrang)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ChuDe.TenChuDe)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TacGia.TenTacGia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TacGia.TenTacGia)
+                            </dd>
+
+                        </dl>
+
+
+
+
+
+                        @using (Html.BeginForm("XacNhanXoaSach", "QuanliSP", FormMethod.Post))
+                        {
+                            @Html.Hidden("MaSach", Model.MaSach)
+                            <div class="form-actions no-color">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a href="@Url.Action("Sach", "QuanliSP")" class="btn btn-primary">Trở Lại</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

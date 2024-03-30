@@ -1,0 +1,57 @@
+﻿@using websitesach.Models;
+
+@model Sach
+
+<div class="col-lg-6">
+    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+        <div class="iq-card-header d-flex justify-content-between mb-0">
+            <div class="iq-header-title">
+                <h4 class="card-title">Best Seller</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+                <div class="dropdown">
+                    <span class="dropdown-toggle p-0 text-body" id="dropdownMenuButton2" data-toggle="dropdown">
+                        Trong ngày<i class="ri-arrow-down-s-fill"></i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right shadow-none" aria-labelledby="dropdownMenuButton2">
+                        <a class="dropdown-item" href="#">Ngày</a>
+                        <a class="dropdown-item" href="#">Tuần</a>
+                        <a class="dropdown-item" href="#">Tháng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="iq-card-body">
+            <div class="row align-items-center">
+
+                <div class="col-sm-5 pr-0">
+                    <a href="javascript:void();">
+                        <img class="img-fluid rounded w-100" src="@Url.Content("~/Hinhanhsanpham/" + Model.AnhBia)" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-7 mt-3 mt-sm-0">
+                    <h4 class="mb-2">@Model.TenSach </h4>
+                    <p class="mb-2">Tác Giả : @Model.TacGia.TenTacGia</p>
+
+
+                    <div class="mb-2 d-block">
+                        <span class="font-size-12 text-warning">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </span>
+                    </div>
+                    @*<button href="@Url.Action("xemchitiet", "Sach", new { Model.MaSach })" type="submit" class="btn btn-primary learn-more">Xem thêm</button>*@
+                    <a href="@Url.Action("xemchitiet", "Sach", new { Model.MaSach })" type="submit" class="btn btn-primary learn-more">Xem thêm</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

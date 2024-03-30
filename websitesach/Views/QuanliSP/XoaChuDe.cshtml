@@ -1,0 +1,53 @@
+﻿@model websitesach.Models.ChuDe
+
+@{
+    ViewBag.Title = "XoaChuDe";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Xóa Danh Mục Sách</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MaChuDe)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MaChuDe)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenChuDe)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenChuDe)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm("XacNhanXoaChuDe", "QuanliSP", FormMethod.Post))
+                        {
+                            @Html.Hidden("MaChuDe", Model.MaChuDe)
+                            <div class="form-actions no-color">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <a href="@Url.Action("ChuDe", "QuanliSP")" class="btn btn-primary">Trở Lại</a>
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

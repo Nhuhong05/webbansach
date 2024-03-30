@@ -1,0 +1,74 @@
+﻿@model IEnumerable<websitesach.Models.KhachHang>
+
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/layout/AdminLayout.cshtml";
+}
+
+
+
+
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                            <div class="iq-header-title">
+                                <h4 class="card-title">Danh sách Khách Hang</h4>
+                            </div>
+                            <div class="iq-card-header-toolbar d-flex align-items-center">
+                                <a href="@Url.Action("ThemMoiKH", "QuanliSP")" class="btn btn-primary">Thêm Khách Hàng Mới</a>
+                            </div>
+                        </div>
+                        <div class="iq-card-body">
+                            <div class="table-responsive">
+                                <table class="data-tables table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">@Html.DisplayNameFor(model => model.MaKH)</th>
+
+
+
+                                            <th width="20%">@Html.DisplayNameFor(model => model.TenTaiKhoan)</th>
+                                            <th width="25%">@Html.DisplayNameFor(model => model.MatKhau)</th>
+                                            <th width="35%">@Html.DisplayNameFor(model => model.Email)</th>
+
+
+                                            <th width="20%">Hoạt động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(modelItem => item.MaKH)</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.TenTaiKhoan)</td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.MatKhau)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex align-items-center list-user-action">
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa" href="@Url.Action("SuaKH", "QuanliSP", new {@MaKH = item.MaKH})"><i class="ri-pencil-line"></i></a>
+                                                        <a class="bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xoá" href="@Url.Action("XoaKH", "QuanliSP", new {@MaKH = item.MaKH})"><i class="ri-delete-bin-line"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

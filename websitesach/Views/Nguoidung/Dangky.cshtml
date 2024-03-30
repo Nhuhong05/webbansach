@@ -1,0 +1,60 @@
+﻿@model websitesach.Models.KhachHang
+
+
+@using (Html.BeginForm("Dangky", "Nguoidung", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Đăng Kí</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="ri-user-fill prefix grey-text"></i>
+
+                        @*@Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Họ Tên</label>
+
+                        @*@Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })*@
+
+                        <input type="text" id="orangeForm-name" required name="txttentk" class=" form-control">
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="ri-mail-line"></i>
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+                        
+                        @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+
+                        @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                       
+                        <input type="email" id="orangeForm-name" name="txtemail" required class=" form-control">
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="ri-lock-line prefix grey-text"></i>
+
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Mật Khẩu</label>
+
+                        @*@Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control validate", id = "orangeForm-name" } })*@
+                        @*@Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })*@
+
+                        <input type="password" id="orangeForm-name" name="txtMK" required class=" form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-deep-orange" style="background-color: #20dbc4"><i class="ri-user-add-line"></i>Đăng Kí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
